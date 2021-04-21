@@ -1,5 +1,5 @@
 # LiptoSpeech
-Lip reading using End to End Sentence Level Lipreading.
+Lip reading using End to End Sentence Level Model
 
 ## Problem Statement:
 
