@@ -10,11 +10,11 @@ Traditional approaches separated the problem into two stages: designing or learn
     Output : The predicted word or phrase the person was speaking.
 
 ## Dataset:
-   GRID-Corpus - http://spandh.dcs.shef.ac.uk/gridcorpus/
-   LRW - https://www.robots.ox.ac.uk/~vgg/data/lip_reading/lrw1.html
+    GRID-Corpus - http://spandh.dcs.shef.ac.uk/gridcorpus/
+    LRW - https://www.robots.ox.ac.uk/~vgg/data/lip_reading/lrw1.html
 
 ## Technologies and frameworks:
-    - Tensorflow1.2.1
+    - Tensorflow 1.2.1
     - Keras
     - Opencv3
     - python 3.6
