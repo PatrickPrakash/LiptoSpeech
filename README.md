@@ -22,5 +22,7 @@ Traditional approaches separated the problem into two stages: designing or learn
 ## Preprocess the dataset :
     python Videoprocess.py id2_vcd_swwp2s.mpg
     
-Dlib Predictor Model is used to landmark the facial points 
-shape_predictor_68_face_landmarks.dat.bz2
+Dlib Predictor Model is used to landmark the facial points which can be found in predictor directory
+``predictor/shape_predictor_68_face_landmarks.dat.bz2``
+
+MouthExtract folder contains the preprocessed dataset
