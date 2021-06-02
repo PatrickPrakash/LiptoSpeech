@@ -71,7 +71,7 @@ class LipNet(object):
         Model(inputs=self.input_data, outputs=self.y_pred).summary()
 
     def predict(self, input_batch):
-          return self.test_function([input_batch, 0])[0]  # the first 0 indicates test
+          return self.test_function([input_batch, 0])[0]  # the first 0 indicates testcl
        # return self.test_function([input_batch])[0]  # the first 0 indicates test
 
 
