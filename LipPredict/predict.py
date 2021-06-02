@@ -18,6 +18,7 @@ import skvideo.io
 import argparse
 
 np.random.seed(55)
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 
@@ -219,7 +220,7 @@ COLORS = 1 # grayscale
 CHANNELS = COLORS*NFRAMES
 MAX_FRAMES_COUNT= 250 # corresponding to 10 seconds, 25Hz*10
 
-mouth_destination_path = os.path.dirname('demo_data'+'/' + 'mouth')
+mouth_destination_path = os.path.dirname('mouth_extracted_imgs'+'/' + 'mouth')
 if not os.path.exists(mouth_destination_path):
     os.makedirs(mouth_destination_path)
 
@@ -228,7 +229,7 @@ def create_numpy_sequence():
     MAX_WIDTH = 90
     MAX_HEIGHT = 90
 
-    path = 'demo_data'
+    path = 'mouth_extracted_imgs'
     filelist = sorted(os.listdir(path + '/'))
     sequence = []
     for i, img_name in enumerate(filelist):
@@ -247,16 +248,16 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 2:
         video_name = sys.argv[1]
-        process_video(video_name)
+        #process_video(video_name)
         sequence = create_numpy_sequence()
-        videox, result = predict(sys.argv[1], 'models/overlapped-weights368.h5')
+        videox, result = predict(sys.argv[1], 'models/lipmodel.h5')
     else:
         sys.exit()
 
+    #For Outputing it into the GUI
     with open('predicted_text.txt', 'w') as fr:
         fr.write(result + '\n' + str(video_name) + "_lip_highlight.mp4")
 
-    stripe = "-" * len(result)
-   # print(f"                  --{stripe}- ")
+    print("*****Lip To Speech*******")
     print("[ THE PERSON SAID ] > | {} |".format(result))
     

@@ -2,17 +2,17 @@ import sys, os
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, CURRENT_PATH)
 
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
+os.environ['KMP_DUPLICATE_LIB_OK']='True' #for resolving the conflicts in package
 
 from keras.optimizers import Adam
 from keras.callbacks import TensorBoard, CSVLogger, ModelCheckpoint
-from lipnet.generators import BasicGenerator
-from lipnet.callbacks import Statistics, Visualize
-from lipnet.curriculums import Curriculum
-from lipnet.decoders import Decoder
-from lipnet.helpers import labels_to_text
-from lipnet.spell import Spell
-from lipnet.model import LipNet
+from lipmodel.generators import BasicGenerator
+from lipmodel.callbacks import Statistics, Visualize
+from lipmodel.curriculums import Curriculum
+from lipmodel.decoders import Decoder
+from lipmodel.helpers import labels_to_text
+from lipmodel.spell import Spell
+from lipmodel.model import LipNet
 import numpy as np
 import datetime
 
