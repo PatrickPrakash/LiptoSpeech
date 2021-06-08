@@ -260,4 +260,13 @@ if __name__ == '__main__':
 
     print("*****Lip To Speech*******")
     print("[ THE PERSON SAID ] > | {} |".format(result))
+
+def main(video_name):
+     videox, result = predict(video_name, 'models/lipmodel.h5')
+     print("*****Lip To Speech*******")
+     print("[ THE PERSON SAID ] > | {} |".format(result))
+     return result
+
+
+
     
