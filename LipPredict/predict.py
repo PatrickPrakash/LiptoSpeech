@@ -202,8 +202,8 @@ def predict(video_path, weight_path, absolute_max_string_len=32, output_size=28)
     input_length = np.array([len(video.data)])
 
     y_pred = lipnet.predict(X_data)
-    print("Model Output")
-    print(y_pred)
+    # print("Model Output")
+    # print(y_pred)
     result = decoder.decode(y_pred, input_length)[0]
 
     return (video, result)
