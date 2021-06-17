@@ -15,4 +15,6 @@ def labels_to_text(labels):
             text += chr(c + ord('a'))
         elif c == 26:
             text += ' '
+    print("The decoded text without Spell Check")
+    print(text)
     return text

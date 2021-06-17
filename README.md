@@ -26,3 +26,12 @@ Dlib Predictor Model is used to landmark the facial points which can be found in
 ``predictor/shape_predictor_68_face_landmarks.dat.bz2``
 
 MouthExtract folder contains the preprocessed dataset
+
+## Prediction:
+    python predict.py <path to the video>
+    Example: python predict.py PredictVideo/patrick.m4v
+
+## Important:
+    Please note that the video should be in 25 fps for the model to work.
+
+  

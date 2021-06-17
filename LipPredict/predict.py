@@ -202,6 +202,8 @@ def predict(video_path, weight_path, absolute_max_string_len=32, output_size=28)
     input_length = np.array([len(video.data)])
 
     y_pred = lipnet.predict(X_data)
+    print("Model Output")
+    print(y_pred)
     result = decoder.decode(y_pred, input_length)[0]
 
     return (video, result)
@@ -248,7 +250,7 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 2:
         video_name = sys.argv[1]
-        #process_video(video_name)
+        process_video(video_name)
         sequence = create_numpy_sequence()
         videox, result = predict(sys.argv[1], 'models/lipmodel.h5')
     else:
@@ -266,6 +268,7 @@ def main(video_name):
      print("*****Lip To Speech*******")
      print("[ THE PERSON SAID ] > | {} |".format(result))
      return result
+     
 
 
 

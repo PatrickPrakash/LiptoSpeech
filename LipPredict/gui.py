@@ -1,3 +1,4 @@
+from typing import Text
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
@@ -6,6 +7,7 @@ from kivy.clock import Clock
 from kivy.uix.button import Button
 from kivy.graphics.texture import Texture
 from kivy.properties import StringProperty, NumericProperty
+from kivy.uix.label import Label
 import sys
 import predict
 import cv2
@@ -28,10 +30,12 @@ class LiptoSpeech(App):
     filename = StringProperty('video.avi')
     frames_per_second = NumericProperty(25.0)
     video_resolution = StringProperty('480p')
+    video_name = 'video.avi'
+    result = "sentence"
 
     def __init__(self, **kwargs):
-        super(KivyCamera, self).__init__(**kwargs)
-        self.video_name = sys.argv[1]
+        super(LiptoSpeech, self).__init__(**kwargs)
+       
         
     def build(self):
         self.img1=Image()
@@ -51,7 +55,10 @@ class LiptoSpeech(App):
                         font_size = 20,
                         size_hint =(.2, .1))
         self.processVideobtn.bind(on_press=self.process_video)
+        self.captionText = Label(text= self.result)
+
         Imagelayout.add_widget(self.img1)
+        Imagelayout.add_widget(self.captionText)
         Btnlayout.add_widget(self.startCapturebtn)
         Btnlayout.add_widget(self.stopCapturebtn)
         Btnlayout.add_widget(self.processVideobtn)
@@ -97,11 +104,13 @@ class LiptoSpeech(App):
         return VIDEO_TYPE['avi']
 
     def process_video(self,*args):
-        predict.main(self.video_name)
+        self.result = predict.main(self.video_name)
+        self.captionText.text = self.result
+        
+        
+
+
         
        
-
-
-
 if __name__ == '__main__':
     LiptoSpeech().run()
